@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="4.0" type="template">
+	<name>amaze</name>
+	<creationDate>2019-03-18</creationDate>
+	<author>Tripti Shukla</author>
+	<authorEmail>tripti12shukla1280@gmail.com</authorEmail>
+	<authorUrl>http://www.portfolio.com</authorUrl>
+	<copyright>Tripti Shukla 2019</copyright>
+	<license>GNU/GPL</license>
+	<version>1.0.2</version>
+	<description>My New Template</description>
+	<files>
+		<filename>index.php</filename>
+		<filename>templateDetails.xml</filename>
+		<folder>images</folder>
+		<folder>css</folder>
+	</files>
+	<positions>
+		<position>breadcrumb</position>
+		<position>left</position>
+		<position>right</position>
+		<position>top</position>
+		<position>user1</position>
+		<position>user2</position>
+		<position>user3</position>
+		<position>user4</position>
+		<position>footer</position>
+	</positions>
+</extension>

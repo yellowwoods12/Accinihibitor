@@ -36,19 +36,4 @@ Example, *python classifier.py input.jpg output.jpg*
 
 ![Output Image](output.jpg?raw=true "Output Image")
 
-## 2. Android Demo
 
-**Android App** directory contains source code of Android app that uses same model to detect car accident on image captured from mobile camera.
-
-There are two ways to interact with Android demo:
-
-1. In case you want to test this app immediately, use the APK file already build and available in *Android App/app/build/outputs/* directly. This APK will be installed on any Android device running on API level 16 or higher.
-2. Build the application on your own and test in emulator or your device. This method is suitable if you want to play around with source code (like changing threshold value which is currently **60%**).
-
-**Mobile App Demo Screenshot**
-
-![Android App Demo Screenshot](screenshot.PNG?raw=true "Android App Demo Screenshot")
-
-# LICENSE
-
-This project follows GNU Affero GPL v3.0. Please go through LICENSE before using or distributing this application. Most imortantly, citing the original author is mandatory.

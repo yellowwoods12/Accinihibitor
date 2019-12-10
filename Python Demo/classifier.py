@@ -1,6 +1,8 @@
 import matplotlib.pyplot as plt
 import tensorflow as tf
 import numpy as np
+from gsm import phoneSms
+import way2sms
 import requests
 
 from object_detection.utils import label_map_util
@@ -8,14 +10,18 @@ from object_detection.utils import visualization_utils as vis_util
 
 import os
 import sys
-
-if len(sys.argv) != 3:
+   
+   
+if len(sys.argv) != 4:
     print("Usage: python classifier.py [Input Image] [Output Image]")
     sys.exit(0)
 
 input_image = sys.argv[1]
 
 output_image = sys.argv[2]
+
+address = sys.argv[3]
+
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
@@ -73,15 +79,20 @@ vis_util.visualize_boxes_and_labels_on_image_array(img, np.squeeze(boxes), np.sq
 plt.imsave(output_image, img)
 
 url = "https://www.fast2sms.com/dev/bulk"
-payload = "sender_id=FSTSMS&message=Accident has been detected at location https://www.google.com/maps/d/u/0/viewer?ie=UTF8&oe=UTF8&msa=0&mid=1CnQ93S-uOjPAfUt1DbxWHWPVw74&ll=28.533928000000017%2C77.34853999999996&z=17&language=english&route=p&numbers=7355780958"
-headers = {'authorization': "wvJesBUI4mGl5AYpkEDjr1q9ZaFcz2oOChS3RXdtfixMVTHLQbxqUplsf9IAibQ23yzBVt6RCwkehjDS",
-           'Content-Type': "application/x-www-form-urlencoded",
-           'Cache-Control': "no-cache",}
-
+     
+payload = "sender_id=FSTSMS&message=AccidentWitnessedAtTheLocation:https://www.google.com/maps/place/Indian+Institute+of+Technology+Bombay/@19.1334353,72.9110739,17z/data=!4m5!3m4!1s0x3be7c7f189efc039:0x68fdcea4c5c5894e!8m2!3d19.1334302!4d72.9132679&language=english&route=p&numbers=7355780958"
+headers = {
+ 'authorization': "wvJesBUI4mGl5AYpkEDjr1q9ZaFcz2oOChS3RXdtfixMVTHLQbxqUplsf9IAibQ23yzBVt6RCwkehjDS",
+ 'Content-Type': "application/x-www-form-urlencoded",
+ 'Cache-Control': "no-cache",
+}
+     
 response = requests.request("POST", url, data=payload, headers=headers)
+     
+print(response.text)
 
+    
 #IMAGE_SIZE = (12, 8)
 #plt.figure(figsize=IMAGE_SIZE)
 #plt.imshow(img)
 print("done")
-print(response.text)
